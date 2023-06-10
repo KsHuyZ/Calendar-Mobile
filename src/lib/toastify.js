@@ -1,0 +1,5 @@
+const toastify = {
+    toastifySuccess: (msg) => {
+    
+    }
+}
