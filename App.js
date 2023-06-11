@@ -28,6 +28,7 @@ export default function App() {
           <Stack.Screen name="Splash" component={Splash} />
           <Stack.Screen name="Login" component={Login} />
           <Stack.Screen name="Sidebar" component={SideBar} />
+        
         </Stack.Navigator>
       </NavigationContainer>
     </AuthProvider>

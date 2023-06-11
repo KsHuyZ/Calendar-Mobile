@@ -20,5 +20,9 @@ const authApi = {
       return error.response.data.msg;
     }
   },
+  authorize: async () => {
+    const res = await axios.get("/auth/authorize");
+    return res.data;
+  },
 };
 export default authApi;
