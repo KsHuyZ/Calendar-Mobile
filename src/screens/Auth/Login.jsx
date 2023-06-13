@@ -64,10 +64,6 @@ const Login = ({ navigation }) => {
 
     }
 
-    useEffect(() => {
-        handleCheckToken();
-    }, []);
-
     return (
         <View style={styles.container}>
             <Text style={styles.mainHeader}>Welcome to my schedule</Text>

@@ -3,12 +3,11 @@ import { StyleSheet } from "react-native";
 const styles = StyleSheet.create({
   drawer: {
     margin: 10,
-    paddingVertical:10,
+    paddingVertical: 10,
     flexDirection: "row",
     alignItems: "center",
+    borderBottomWidth: 0.5,
     borderBottomColor: "#cccccc",
-    borderBottomWidth: "1%",
-
   },
   textLogo: {
     fontSize: 20,
