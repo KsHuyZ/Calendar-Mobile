@@ -4,7 +4,7 @@ import Calendar from "react-native-big-calendar";
 import eventApi from '../api/eventApi';
 import { AuthContext } from '../context/AuthProvider';
 import socket from "../config/socket";
-
+import { useNavigation } from '@react-navigation/native';
 
 
 const now = () => new Date();
@@ -17,6 +17,7 @@ const Home = (props) => {
     const [allEvents, setAllEvents] = useState([])
     const [view, setView] = useState("month")
 
+    const navigation = useNavigation();
 
     const eventStyleGetter = (event, start, end, isSelected) => {
         var backgroundColor = event?.backgroundColor;
@@ -43,14 +44,14 @@ const Home = (props) => {
     }
 
     const handleClickEvent = async (event) => {
-        console.log(event)
+        navigation.navigate('Detail', event);
     }
     useEffect(() => {
         handleGetEventbyCalendarId()
     }, [user])
 
     return (
-        <Calendar events={allEvents} height={500} eventCellStyle={{ backgroundColor: "white" }} mode={'week'} onPressEvent={handleClickEvent} />
+        <Calendar events={allEvents} height={500} eventCellStyle={eventStyleGetter} mode={'week'} onPressEvent={handleClickEvent} />
     )
 }
 

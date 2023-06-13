@@ -41,12 +41,6 @@ const weatherTypes = [
 
 ]
 
-{/* <Skeleton
-    LinearGradientComponent={LinearGradient}
-    animation="wave"
-    width={80}
-    height={40}
-  />  */}
 
 const Weather = () => {
     const [weather, setWeather] = useState({
@@ -92,23 +86,26 @@ const Weather = () => {
                             animation="wave"
                             width={100}
                             height={20}
+                            style={{ paddingVertical: 5 }}
                         /> : <Text style={styles.weatherType}>{weather.weatherType}</Text>}
                         {!loading ? <Skeleton
                             animation="wave"
                             width={80}
                             height={10}
+                            style={{ paddingVertical: 5 }}
                         /> : <Text>{(weather.temperature - 273.15).toFixed()}°C</Text>}
 
                         {!loading ? <Skeleton
                             animation="wave"
                             width={80}
                             height={10}
+                            style={{ paddingVertical: 5 }}
                         /> : <Text>{weather.description}</Text>}
 
                     </View>
                     <View style={styles.image}>
                         {weatherTypes.map(weathers => (
-                            weathers.type === weather.weatherType ? (!loading ? <Skeleton
+                            weathers.type === weather.weatherType ? (!loading ? <Skeleton key={Math.random()}
                                 animation="wave"
                                 width={60}
                                 height={50}

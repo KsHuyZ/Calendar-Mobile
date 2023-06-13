@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { TouchableOpacity, Text, Image, View, TextInput, ActivityIndicator } from "react-native";
 import styles from "./login.style"
 import Icon from "react-native-vector-icons/Feather"
 import Google from "react-native-vector-icons/AntDesign"
 import authApi from '../../api/authApi';
 import { getData } from '../../utils/storeData';
-
+import { AuthContext } from "../../context/AuthProvider"
 
 const EyeIcon = ({ onPress, show }) => (
     <TouchableOpacity onPress={onPress} style={{ position: "absolute", right: 15, bottom: 38 }}>
@@ -29,9 +29,9 @@ const Login = ({ navigation }) => {
         email: "",
         password: ""
     })
-    const [isLogin, setIsLogin] = useState(false);
+    const { setUser } = useContext(AuthContext)
 
-   
+
 
 
     const { login } = authApi
@@ -55,7 +55,7 @@ const Login = ({ navigation }) => {
         const res = await login(email, password)
         setLoading(false)
         if (res?.user) {
-            // setUser(res)
+            setUser(res)
             return navigation.navigate('Sidebar')
         }
         if (res === "user_not_exist") return setError({ ...error, email: "User not exits" })

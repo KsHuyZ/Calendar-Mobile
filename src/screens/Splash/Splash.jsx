@@ -2,7 +2,7 @@ import { View, Text, Image } from 'react-native'
 import React, { useEffect } from 'react'
 import Logo from "../../assets/logoo.png"
 import styles from './splash.styles'
-import { getData } from '../../utils/storeData'
+import { getData, removeItem } from '../../utils/storeData'
 import * as Progress from 'react-native-progress';
 
 const Splash = ({ navigation }) => {
@@ -22,7 +22,7 @@ const Splash = ({ navigation }) => {
     return (
         <View style={styles.container}>
             <Image source={Logo} style={styles.logo} />
-            <Progress.Bar width={150} animated indeterminate/>
+            <Progress.Bar width={150} animated indeterminate />
         </View>
     )
 }

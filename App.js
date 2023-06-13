@@ -11,6 +11,7 @@ import "./src/config/firebase";
 import { useContext, useEffect, useState } from "react";
 import { getData } from "./src/utils/storeData";
 import Splash from "./src/screens/Splash/Splash";
+import Detail from "./src/screens/Detail/Detail";
 
 const Stack = createStackNavigator();
 
@@ -28,7 +29,7 @@ export default function App() {
           <Stack.Screen name="Splash" component={Splash} />
           <Stack.Screen name="Login" component={Login} />
           <Stack.Screen name="Sidebar" component={SideBar} />
-        
+          <Stack.Screen name="Detail" component={Detail} />
         </Stack.Navigator>
       </NavigationContainer>
     </AuthProvider>
